@@ -29,7 +29,7 @@
     <span class="lead"><?php echo $titulo->getTit_name(); ?></span>
     </span>
     <span class="derecha">
-      <button type="submit" class="btn btn-danger" type="submit" name="<?php echo $titulo->getTit_id(); ?>">Borrar</button>
+      <button type="submit" class="btn btn-danger" type="submit" name="<?php echo $titulo->getTit_id(); ?>"><span class="glyphicon glyphicon-trash"</button>
     </span>
  </div>
 <?php endforeach; ?>

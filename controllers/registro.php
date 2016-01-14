@@ -7,6 +7,7 @@
   require_once 'navbar.php';
   require_once 'modal.php';
 
+  session_start();
   $db = DBManager::getInstance();
   $db->connect();
 
@@ -22,8 +23,8 @@
     if(!$usuario->existeUsuario()){
       $usuario->create();
       $db->insertRelationUserRol($_POST['name'],'UsuarioApuntorium');
-      header("location: confirmacion.php"); //correcto
-      echo "usuario creado burrada";
+      $_SESSION['name'] = $_POST['name'];
+      $renderRegistro->modal = renderModalCorrecto("Usuario Registrado correctamente","Te has registrado correctamente, bienvenido a apuntorium.");
     }else{
       $title = "Ya existe un usuario con ese nombre";
       $content = "Seleccione un nombre de usuario diferente y vuelva a probar";
@@ -32,7 +33,7 @@
   }
 
   $renderMain->title = "registro";
-  $renderMain->navbar = renderNavBar(); 
+  $renderMain->navbar = renderNavBar();
   $renderMain->content = $renderRegistro->render('registro_v.php');
   echo $renderMain->renderMain(); //renderiza y muestra al user
 

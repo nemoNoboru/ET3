@@ -8,11 +8,11 @@
       <input class="form-control" type="text" name="name" placeholder="Nombre"/><br/>
       <input class="form-control" type="text" name="email" placeholder="email" /><br/>
       <input class="form-control" type="password" name="pass" placeholder="contraseña" /><br/>
-      <input class="btn btn-success btn-block"type="submit" value="Submit">
+      <input class="btn btn-success btn-block"type="submit" value="Registrarse">
     </div>
   </form>
   <a href='login.php'>Volver</a>
+</div>
+</div>
+</div>
   <?php echo $modal ; ?>
-</div>
-</div>
-</div>

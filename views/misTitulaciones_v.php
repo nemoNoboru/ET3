@@ -11,7 +11,7 @@
   <?php foreach ($misTitulaciones as $key): ?>
     <div class="row box itemtit">
       <span class="izquierda"> <?php echo $key->getTit_name(); ?></span>
-      <span class="derecha"><button type="submit" class="btn btn-danger" type="submit" name="<?php echo $key->getTit_id(); ?>">Eliminar</button></span>
+      <span class="derecha"><button type="submit" class="glyphicon glyphicon-trash btn btn-danger" type="submit" name="<?php echo $key->getTit_id(); ?>"></button></span>
 
     </div>
   <?php endforeach; ?>
@@ -31,7 +31,7 @@
   <?php foreach ($allTitulaciones as $key): ?>
     <div class="row box itemtit2">
       <span class="izquierda"> <?php echo $key->getTit_name(); ?></span>
-      <span class="derecha"><button type="submit" class="btn btn-success" type="submit" name="<?php echo $key->getTit_id(); ?>">Añadir</button></span>
+      <span class="derecha"><button type="submit" class="glyphicon glyphicon-plus btn btn-success" type="submit" name="<?php echo $key->getTit_id(); ?>"></button></span>
     </div>
 
   <?php endforeach; ?>
