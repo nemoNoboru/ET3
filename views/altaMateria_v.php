@@ -3,10 +3,10 @@
   <div class="panel panel-default">
     <div class="panel-heading">Crear nueva materia</div>
     <div class="panel-body">
-<form method= "POST" action="altaMateria.php">
+<form name="form1" method= "POST" action="altaMateria.php">
   <p> Cubra los siguientes campos para dar de alta una materia:</p>
 
-  <input class="form-control" required type="text" name="materia" size="40" placeholder="Materia"><br/>
+  <input class="form-control" required pattern="[A-z 0-9]{1,24}" type="text" name="materia" size="40" placeholder="Materia"><br/>
 
   <select class="form-control" name="titulo">
 

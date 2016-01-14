@@ -3,10 +3,10 @@
   <div class="panel panel-default">
     <div class="panel-heading">Log-in</div>
     <div class="panel-body">
-  <form action="../controllers/login.php" id="form" method="post">
+  <form name="form1" action="../controllers/login.php" id="form" method="post">
     <div class="form-group">
-      <input class="form-control" required placeholder="usuario" type="text" name="name"><br/>
-      <input class="form-control" required type="password" placeholder="contraseña" name="pass">
+      <input class="form-control" pattern="[A-z 0-9]{1,24}" required placeholder="usuario" type="text" name="name"><br/>
+      <input class="form-control" pattern="[A-z 0-9]{1,24}" required type="password" placeholder="contraseña" name="pass">
       <br/>
       <!-- <div class="centered btn btn-default" onclick="submit()"> Login </div> -->
       <input class="btn btn-success btn-block"type="submit" value="Entrar">

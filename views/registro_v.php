@@ -3,11 +3,11 @@
   <div class="panel panel-default">
     <div class="panel-heading">Registro</div>
     <div class="panel-body">
-  <form action="../controllers/registro.php" method="post">
+  <form name="form1" action="../controllers/registro.php" method="post">
     <div class="form-group">
-      <input class="form-control" required type="text" name="name" placeholder="Nombre"/><br/>
-      <input class="form-control" type="text" name="email" placeholder="email" /><br/>
-      <input class="form-control" required type="password" name="pass" placeholder="contraseña" /><br/>
+      <input class="form-control" required pattern="[A-z]{1,24}" type="text" name="name" placeholder="Nombre"/><br/>
+      <input class="form-control" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="text" name="email" placeholder="email" /><br/>
+      <input class="form-control" required pattern="[A-z]{1,24}" type="password" name="pass" placeholder="contraseña" /><br/>
       <input class="btn btn-success btn-block"type="submit" value="Registrarse">
     </div>
   </form>

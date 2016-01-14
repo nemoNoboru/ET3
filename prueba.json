@@ -1,0 +1,90 @@
+{
+  "../views/login_v.php" : {
+    "form1" : {
+      "name":{
+        "admin" : true,
+        "" : false,
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa":false,
+        ".": false
+      },
+      "pass":{
+        "correcto":true,
+        "" : false,
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa":false,
+        "." : false
+      }
+    }
+  },
+  "../views/registro_v.php": {
+    "form1":{
+      "name":{
+        "admin":true,
+        "":false,
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa":false,
+        ".":false
+      },
+      "email":{
+        "felipetavres@gmail.com":true,
+        "aaaaa":false,
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa":false,
+        ".":false
+      },
+      "pass":{
+        "correcto":true,
+        "":false,
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa":false,
+        ".":false
+      }
+    }
+  },
+  "../views/nuevaNota_v.php":{
+    "form1":{
+      "title":{
+        "correcto":true,
+        "":false,
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa":false,
+        ".":false
+      }
+    }
+  },
+  "../views/editarNota_v.php":{
+    "form1":{
+      "title":{
+        "correcto":true,
+        "":false,
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa":false,
+        ".":false
+      }
+    }
+  },
+  "../views/editarNotaAjena_v.php":{
+    "form1":{
+      "title":{
+        "correcto":true,
+        "":false,
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa":false,
+        ".":false
+      }
+    }
+  },
+  "../views/consultaTitulaciones_v.php":{
+    "form1":{
+      "materianueva":{
+        "correcto":true,
+        "":false,
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa":false,
+        "1":false,
+        ".":false
+      }
+    }
+  },
+  "../views/altaMateria_v.php":{
+    "form1":{
+      "materia":{
+        "correcto":true,
+        "":false,
+        ".":false
+      }
+    }
+  }
+}
