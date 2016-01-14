@@ -3,6 +3,11 @@
 
   session_start(); // se inicia el manejo de sesiones
 
+//Cancerbero
+require_once '../cancerbero/cancerbero.php';
+$cerb = new Cancerbero('AP_AdminMateria');
+$cerb->handleAuto();
+
   //Includes iniciales
   require_once '../views/templateEngine.php'; // se carga la clase TemplateEngine
   require_once '../cancerbero/php/DBManager.php'; // se carga el driver de cancerbero
