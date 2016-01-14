@@ -1,3 +1,13 @@
+<div class="col-md-4 col-sm-12">
+  <div class="panel panel-default">
+    <div class="panel-heading">Atajos</div>
+    <div class="panel-body">
+      <a href="nuevaNota.php" class="btn btn-lg btn-success btn-block btn-lg" style="padding-top: 75px;padding-bottom: 75px">Crea nueva nota</a>
+      <br/>
+      <a href="subirApunte.php" class="btn btn-lg btn-success btn-block" style="padding-top: 75px;padding-bottom: 75px">Subir un apunte</a>
+    </div>
+  </div>
+</div>
 <div class="col-md-8 col-sm-12">
   <div class="panel panel-default">
     <div class="panel-heading">Ultimos apuntes subidos</div>
@@ -17,16 +27,6 @@
           </span>
        </div>
       <?php endforeach; ?>
-    </div>
-  </div>
-</div>
-<div class="col-md-4 col-sm-12">
-  <div class="panel panel-default">
-    <div class="panel-heading">Atajos</div>
-    <div class="panel-body">
-      <a href="nuevaNota.php" class="btn btn-lg btn-success btn-block">Crea nueva nota</a>
-      <br/>
-      <a href="subirApunte.php" class="btn btn-lg btn-success btn-block">Subir un apunte</a>
     </div>
   </div>
 </div>
