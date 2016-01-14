@@ -11,7 +11,7 @@
   <?php foreach ($misMaterias as $key): ?>
     <div class="row box itemtit">
       <span class="izquierda"> <?php echo $key->getMat_name(); ?> (<?php echo $key->nombreTitulacion(); ?>)</span>
-      <span class="derecha"><button type="submit" class="btn btn-danger" type="submit" name="<?php echo $key->getMat_id(); ?>">Eliminar</button></span>
+      <span class="derecha"><button type="submit" class="btn btn-danger" type="submit" name="<?php echo $key->getMat_id(); ?>"><span class="glyphicon glyphicon-trash"></span></button></span>
     </div>
   <?php endforeach; ?>
 </form>
@@ -32,7 +32,7 @@
     <?php foreach ($titulacion->materias() as $materia): ?>
     <div class="row box itemtit2">
       <span class="izquierda"> <?php echo $materia->getMat_name(); ?></span>
-      <span class="derecha"><button type="submit" class="btn btn-success" type="submit" name="<?php echo $materia->getMat_id(); ?>">Añadir</button></span>
+      <span class="derecha"><button type="submit" class="btn btn-success" type="submit" name="<?php echo $materia->getMat_id(); ?>"><span class="glyphicon glyphicon-plus"></span></button></span>
     </div>
     <?php endforeach; ?>
   <?php endforeach; ?>
