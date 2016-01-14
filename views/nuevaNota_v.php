@@ -3,9 +3,9 @@
   <div class="banner"><h1>Nueva nota</h1></div>
   <form method="post" action="nuevaNota.php">
   <hr/>
-  <input name="title" class="form-control" type="text" placeholder="Titulo" />
+  <input required name="title" class="form-control" type="text" placeholder="Titulo" />
   <br/>
-  <textarea name="editor" id='editor'></textarea>
+  <textarea required name="editor" id='editor'></textarea>
   <input class="btn btn-success btn-block" type="submit" value="Guardar">
 </div>
 <div class="col-md-2 col-sm-12"></div>

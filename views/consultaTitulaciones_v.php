@@ -6,7 +6,7 @@
 <div>
   <form action="../controllers/altaTitulacion.php"  method="post">
     <div class="form-group">
-      <input class="form-control" type="text" name="materianueva" placeholder="Nombre de la nueva titulacion"/><br/>
+      <input required class="form-control" type="text" name="materianueva" placeholder="Nombre de la nueva titulacion"/><br/>
       <input class="form-control btn btn-success" type="submit" value="Añadir nueva Titulacion">
     </div>
   </form>

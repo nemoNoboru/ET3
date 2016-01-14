@@ -5,8 +5,8 @@
     <div class="panel-body">
   <form action="../controllers/login.php" id="form" method="post">
     <div class="form-group">
-      <input class="form-control" placeholder="usuario" type="text" name="name"><br/>
-      <input class="form-control" type="password" placeholder="contraseña" name="pass">
+      <input class="form-control" required placeholder="usuario" type="text" name="name"><br/>
+      <input class="form-control" required type="password" placeholder="contraseña" name="pass">
       <br/>
       <!-- <div class="centered btn btn-default" onclick="submit()"> Login </div> -->
       <input class="btn btn-success btn-block"type="submit" value="Entrar">

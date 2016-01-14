@@ -10,10 +10,10 @@
   <hr/>
   <form action="../controllers/subirApunte.php" enctype="multipart/form-data" method="post">
     <div class="form-group">
-      <input name="apunteUploaded" type="file" /><br/>
-      <input class="form-control" type="text" name="name" placeholder="Nombre"/><br/>
-      <select class="form-control" name="materia">
-        <option value="nil" selected> Seleccione una materia </option>
+      <input required name="apunteUploaded" type="file" /><br/>
+      <input required class="form-control" type="text" name="name" placeholder="Nombre"/><br/>
+      <select required class="form-control" name="materia">
+        <option value="" selected> Seleccione una materia </option>
         <?php foreach($materias as $materia): ?>
           <option value="<?php echo $materia->getMat_id(); ?>"><?php echo $materia->getMat_name(); ?> (<?php echo $materia->nombreTitulacion()?>)</option>
         <?php endforeach; ?>
