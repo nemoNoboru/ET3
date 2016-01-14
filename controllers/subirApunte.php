@@ -56,7 +56,7 @@
           $array=$matuser->findBy('mat_id',$apunte->getMat_id());
           foreach($array as $arrays){
             $notificacion->setFecha($buffer);
-            $notificacion->setContenido("nuevos apuntes en " .$mat);
+            $notificacion->setContenido("Nuevos apuntes en " .$mat);
             $notificacion->setUser_id($arrays->getUser_id());
             $notificacion->create();
           }

@@ -35,9 +35,10 @@
         <div class="row box itemtit">
               <span class="izquierda"> <?php echo $key->getMat_name(); ?></span>
               <span> <?php echo $titulos[0]->findBy("tit_id",$key->getTit_id())[0]->getTit_Name();?></span>
-              <a class="derecha" href="adminMateria.php?mat=<?php echo $key->getMat_id();?>">HUE</a>
-              <span class="derecha" ><button type="submit" class="btn btn-danger" name="<?php echo $key->getMat_id(); ?>">Eliminar
-            </button></span>
+              <span class="derecha">
+                <a class="btn btn-success glyphicon glyphicon-pencil" href="adminMateria.php?mat=<?php echo $key->getMat_id();?>"></a>
+                <button type="submit" class="btn btn-danger" name="<?php echo $key->getMat_id(); ?>">Eliminar</button>
+              </span>
       </div>
   <?php endforeach; ?>
   </form>

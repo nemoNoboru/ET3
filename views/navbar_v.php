@@ -50,7 +50,7 @@
     }
     if($admin==1){
       echo '<li><a href="../controllers/administrarMaterias.php">Administrar Materias</a></li>'; //Para designar gente y administrarlas en si
-      echo '<li><a href="../controllers/administrarTitulaciones.php">Administrar Titulaciones</a></li>';
+      echo '<li><a href="../controllers/consultaTitulaciones.php">Administrar Titulaciones</a></li>';
       echo '<li><a href="../cancerbero/GestionUsuarios/GestionUsuarios.php">Administrar Usuarios</a></li>';
     }
       echo'</ul>

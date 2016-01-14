@@ -16,7 +16,7 @@
 
   </select><br/>
 
-  <input class="btn btn-block btn-success" type="submit" value="Submit">
+  <input class="btn btn-block btn-success" type="submit" value="Crear">
 </form>
 </div>
 </div>
