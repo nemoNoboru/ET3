@@ -2,6 +2,11 @@
   // controlador de mis notas por Raul Villar
   session_start(); // iniciar sesion
 
+  //Cancerbero
+  require_once '../cancerbero/cancerbero.php';
+  $cerb = new Cancerbero('AP_MisNotas');
+  $cerb->handleAuto();
+
   //Includes iniciales
   require_once '../views/templateEngine.php'; // se carga la clase TemplateEngine
   require_once '../model/driver.php'; // se carga el driver de cancerbero

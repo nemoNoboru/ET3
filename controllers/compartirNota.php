@@ -3,6 +3,11 @@
 
   session_start(); // se inicia el manejo de sesiones
 
+  //Cancerbero
+  require_once '../cancerbero/cancerbero.php';
+  $cerb = new Cancerbero('AP_CompartirNota');
+  $cerb->handleAuto();
+
   //Includes iniciales
   require_once '../views/templateEngine.php'; // se carga la clase TemplateEngine
   require_once 'navbar.php'; //Inclusión de navbar. Omitible si no la necesita
