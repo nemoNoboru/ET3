@@ -48,7 +48,7 @@
 
    public function handleAuto(){
      if(!$this->canAccess($_SESSION['name'])){
-       header('location:../views/error.php?ID=3');
+       header('location:../views/noPermisos.php');
        exit();
      }
    }

@@ -12,8 +12,14 @@
   require_once 'navbar.php';
   require_once 'comboboxes.php';
   require_once 'modal.php';
-
   session_start(); // se inicia el manejo de sesiones
+
+  //Cancerbero
+  require_once '../cancerbero/cancerbero.php';
+  $cerb = new Cancerbero('AP_SubirApunte');
+  $cerb->handleAuto();
+
+
   $db = Driver::getInstance();
 
   //Instancias TemplateEngine, renderizan elementos

@@ -6,7 +6,7 @@
 require_once '../model/driver.php';
 require_once '../model/Titulacion.php';
 
-if(isset((array_keys($_POST)[1]))){
+if(isset(array_keys($_POST)[1])){
   $id = (array_keys($_POST)[1]); // get the value of clicked button
   $db = Driver::getInstance();
 
