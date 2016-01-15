@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.12deb2
+-- version 4.2.12deb2+deb8u1
 -- http://www.phpmyadmin.net
 --
--- Servidor: localhost
--- Tiempo de generación: 14-01-2016 a las 23:21:39
--- Versión del servidor: 5.5.44-0+deb8u1
--- Versión de PHP: 5.6.13-0+deb8u1
+-- Host: localhost
+-- Generation Time: Jan 15, 2016 at 07:37 PM
+-- Server version: 5.5.46-0+deb8u1
+-- PHP Version: 5.6.14-0+deb8u1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de datos: `GSTRDB`
+-- Database: `GSTRDB`
 --
 CREATE DATABASE IF NOT EXISTS `GSTRDB` DEFAULT CHARACTER SET utf16 COLLATE utf16_spanish2_ci;
 USE `GSTRDB`;
@@ -25,7 +25,7 @@ USE `GSTRDB`;
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `Administra`
+-- Table structure for table `Administra`
 --
 
 DROP TABLE IF EXISTS `Administra`;
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `Administra` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `Apunte`
+-- Table structure for table `Apunte`
 --
 
 DROP TABLE IF EXISTS `Apunte`;
@@ -51,17 +51,17 @@ CREATE TABLE IF NOT EXISTS `Apunte` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci;
 
 --
--- Volcado de datos para la tabla `Apunte`
+-- Dumping data for table `Apunte`
 --
 
 INSERT INTO `Apunte` (`apunte_id`, `mat_id`, `anho_academico`, `apunte_name`, `ruta`, `user_id`) VALUES
-(2, 1, 2015, 'eeeee', 'c319b5f8ffd17ac62abea906ab2a264c', 21),
-(3, 1, 2011, 'ueehhuehue', 'c319b5f8ffd17ac62abea906ab2a264c', 23);
+(2, 4, 2015, 'eeeee', 'c319b5f8ffd17ac62abea906ab2a264c', 21),
+(3, 6, 2011, 'ueehhuehue', 'c319b5f8ffd17ac62abea906ab2a264c', 23);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `Comparte_Nota`
+-- Table structure for table `Comparte_Nota`
 --
 
 DROP TABLE IF EXISTS `Comparte_Nota`;
@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `Comparte_Nota` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci;
 
 --
--- Volcado de datos para la tabla `Comparte_Nota`
+-- Dumping data for table `Comparte_Nota`
 --
 
 INSERT INTO `Comparte_Nota` (`nota_id`, `user_id`) VALUES
@@ -80,7 +80,7 @@ INSERT INTO `Comparte_Nota` (`nota_id`, `user_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `Funcionalidad`
+-- Table structure for table `Funcionalidad`
 --
 
 DROP TABLE IF EXISTS `Funcionalidad`;
@@ -91,7 +91,7 @@ CREATE TABLE IF NOT EXISTS `Funcionalidad` (
 ) ENGINE=MyISAM AUTO_INCREMENT=29 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
--- Volcado de datos para la tabla `Funcionalidad`
+-- Dumping data for table `Funcionalidad`
 --
 
 INSERT INTO `Funcionalidad` (`fun_id`, `fun_name`, `fun_desc`) VALUES
@@ -107,7 +107,7 @@ INSERT INTO `Funcionalidad` (`fun_id`, `fun_name`, `fun_desc`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `Materia`
+-- Table structure for table `Materia`
 --
 
 DROP TABLE IF EXISTS `Materia`;
@@ -115,21 +115,30 @@ CREATE TABLE IF NOT EXISTS `Materia` (
 `mat_id` int(11) NOT NULL,
   `mat_name` varchar(18) COLLATE utf16_spanish2_ci NOT NULL,
   `tit_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci;
 
 --
--- Volcado de datos para la tabla `Materia`
+-- Dumping data for table `Materia`
 --
 
 INSERT INTO `Materia` (`mat_id`, `mat_name`, `tit_id`) VALUES
-(1, 'Materia1', 1),
-(2, 'Materia2', 1),
-(3, 'Materia5', 1);
+(4, 'ISII', 2),
+(5, 'ISI', 2),
+(6, 'AEDI', 2),
+(7, 'CDA', 2),
+(8, 'Quimica', 5),
+(9, 'Biofisica', 5),
+(11, 'Fisica', 3),
+(13, 'Botanica', 3),
+(14, 'Zoologia', 3),
+(15, 'Metodos 1', 4),
+(16, 'Metodos 2', 4),
+(17, 'Termodinamica', 4);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `Materia_Usuario`
+-- Table structure for table `Materia_Usuario`
 --
 
 DROP TABLE IF EXISTS `Materia_Usuario`;
@@ -139,19 +148,20 @@ CREATE TABLE IF NOT EXISTS `Materia_Usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci;
 
 --
--- Volcado de datos para la tabla `Materia_Usuario`
+-- Dumping data for table `Materia_Usuario`
 --
 
 INSERT INTO `Materia_Usuario` (`mat_id`, `user_id`) VALUES
 (1, 21),
 (1, 23),
 (2, 21),
-(3, 21);
+(3, 21),
+(7, 21);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `Nota`
+-- Table structure for table `Nota`
 --
 
 DROP TABLE IF EXISTS `Nota`;
@@ -164,7 +174,7 @@ CREATE TABLE IF NOT EXISTS `Nota` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci;
 
 --
--- Volcado de datos para la tabla `Nota`
+-- Dumping data for table `Nota`
 --
 
 INSERT INTO `Nota` (`nota_id`, `nota_name`, `fecha`, `contenido`, `user_id`) VALUES
@@ -174,7 +184,7 @@ INSERT INTO `Nota` (`nota_id`, `nota_name`, `fecha`, `contenido`, `user_id`) VAL
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `Notificacion`
+-- Table structure for table `Notificacion`
 --
 
 DROP TABLE IF EXISTS `Notificacion`;
@@ -188,7 +198,7 @@ CREATE TABLE IF NOT EXISTS `Notificacion` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `Pag_Fun`
+-- Table structure for table `Pag_Fun`
 --
 
 DROP TABLE IF EXISTS `Pag_Fun`;
@@ -198,7 +208,7 @@ CREATE TABLE IF NOT EXISTS `Pag_Fun` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
--- Volcado de datos para la tabla `Pag_Fun`
+-- Dumping data for table `Pag_Fun`
 --
 
 INSERT INTO `Pag_Fun` (`pag_id`, `fun_id`) VALUES
@@ -243,12 +253,13 @@ INSERT INTO `Pag_Fun` (`pag_id`, `fun_id`) VALUES
 (49, 26),
 (50, 26),
 (51, 27),
-(51, 28);
+(51, 28),
+(52, 26);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `Pagina`
+-- Table structure for table `Pagina`
 --
 
 DROP TABLE IF EXISTS `Pagina`;
@@ -256,10 +267,10 @@ CREATE TABLE IF NOT EXISTS `Pagina` (
 `pag_id` int(11) NOT NULL,
   `pag_name` varchar(64) COLLATE latin1_spanish_ci NOT NULL,
   `pag_desc` varchar(64) COLLATE latin1_spanish_ci NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=52 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=53 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
--- Volcado de datos para la tabla `Pagina`
+-- Dumping data for table `Pagina`
 --
 
 INSERT INTO `Pagina` (`pag_id`, `pag_name`, `pag_desc`) VALUES
@@ -289,12 +300,13 @@ INSERT INTO `Pagina` (`pag_id`, `pag_name`, `pag_desc`) VALUES
 (42, 'AP_CompartirNota', 'APUNTORIUM'),
 (41, 'AP_AltaMateria', 'APUNTORIUM'),
 (40, 'AP_AdminMateria', 'APUNTORIUM'),
-(39, 'AP_AdministradoresMateria', 'APUNTORIUM');
+(39, 'AP_AdministradoresMateria', 'APUNTORIUM'),
+(52, 'AP_SubirApunte', 'APUNTORIUM');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `Rol`
+-- Table structure for table `Rol`
 --
 
 DROP TABLE IF EXISTS `Rol`;
@@ -305,7 +317,7 @@ CREATE TABLE IF NOT EXISTS `Rol` (
 ) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
--- Volcado de datos para la tabla `Rol`
+-- Dumping data for table `Rol`
 --
 
 INSERT INTO `Rol` (`rol_id`, `rol_name`, `rol_desc`) VALUES
@@ -317,7 +329,7 @@ INSERT INTO `Rol` (`rol_id`, `rol_name`, `rol_desc`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `Rol_Fun`
+-- Table structure for table `Rol_Fun`
 --
 
 DROP TABLE IF EXISTS `Rol_Fun`;
@@ -327,7 +339,7 @@ CREATE TABLE IF NOT EXISTS `Rol_Fun` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
--- Volcado de datos para la tabla `Rol_Fun`
+-- Dumping data for table `Rol_Fun`
 --
 
 INSERT INTO `Rol_Fun` (`rol_id`, `fun_id`) VALUES
@@ -335,31 +347,35 @@ INSERT INTO `Rol_Fun` (`rol_id`, `fun_id`) VALUES
 (12, 26),
 (14, 18),
 (15, 27),
-(16, 24);
+(16, 24),
+(16, 26);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `Titulacion`
+-- Table structure for table `Titulacion`
 --
 
 DROP TABLE IF EXISTS `Titulacion`;
 CREATE TABLE IF NOT EXISTS `Titulacion` (
 `tit_id` int(11) NOT NULL,
   `tit_name` varchar(18) COLLATE utf16_spanish2_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci;
 
 --
--- Volcado de datos para la tabla `Titulacion`
+-- Dumping data for table `Titulacion`
 --
 
 INSERT INTO `Titulacion` (`tit_id`, `tit_name`) VALUES
-(1, 'TitulacionTest');
+(2, 'Informatica'),
+(3, 'Ambientales'),
+(4, 'Fisica'),
+(5, 'Biologia');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `Titulacion_Usuario`
+-- Table structure for table `Titulacion_Usuario`
 --
 
 DROP TABLE IF EXISTS `Titulacion_Usuario`;
@@ -369,17 +385,17 @@ CREATE TABLE IF NOT EXISTS `Titulacion_Usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci;
 
 --
--- Volcado de datos para la tabla `Titulacion_Usuario`
+-- Dumping data for table `Titulacion_Usuario`
 --
 
 INSERT INTO `Titulacion_Usuario` (`tit_id`, `user_id`) VALUES
-(1, 21),
-(1, 23);
+(1, 23),
+(2, 21);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `U_Tiene_A`
+-- Table structure for table `U_Tiene_A`
 --
 
 DROP TABLE IF EXISTS `U_Tiene_A`;
@@ -388,17 +404,10 @@ CREATE TABLE IF NOT EXISTS `U_Tiene_A` (
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci;
 
---
--- Volcado de datos para la tabla `U_Tiene_A`
---
-
-INSERT INTO `U_Tiene_A` (`apunte_id`, `user_id`) VALUES
-(3, 21);
-
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `User_Fun`
+-- Table structure for table `User_Fun`
 --
 
 DROP TABLE IF EXISTS `User_Fun`;
@@ -408,7 +417,7 @@ CREATE TABLE IF NOT EXISTS `User_Fun` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
--- Volcado de datos para la tabla `User_Fun`
+-- Dumping data for table `User_Fun`
 --
 
 INSERT INTO `User_Fun` (`user_id`, `fun_id`) VALUES
@@ -417,7 +426,7 @@ INSERT INTO `User_Fun` (`user_id`, `fun_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `User_Pag`
+-- Table structure for table `User_Pag`
 --
 
 DROP TABLE IF EXISTS `User_Pag`;
@@ -427,7 +436,7 @@ CREATE TABLE IF NOT EXISTS `User_Pag` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
--- Volcado de datos para la tabla `User_Pag`
+-- Dumping data for table `User_Pag`
 --
 
 INSERT INTO `User_Pag` (`user_id`, `pag_id`) VALUES
@@ -444,12 +453,13 @@ INSERT INTO `User_Pag` (`user_id`, `pag_id`) VALUES
 (10, 12),
 (10, 13),
 (10, 14),
-(10, 16);
+(10, 16),
+(23, 52);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `User_Rol`
+-- Table structure for table `User_Rol`
 --
 
 DROP TABLE IF EXISTS `User_Rol`;
@@ -459,7 +469,7 @@ CREATE TABLE IF NOT EXISTS `User_Rol` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
--- Volcado de datos para la tabla `User_Rol`
+-- Dumping data for table `User_Rol`
 --
 
 INSERT INTO `User_Rol` (`user_id`, `rol_id`) VALUES
@@ -469,12 +479,13 @@ INSERT INTO `User_Rol` (`user_id`, `rol_id`) VALUES
 (21, 15),
 (21, 16),
 (22, 16),
-(23, 16);
+(23, 16),
+(24, 14);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `Usuario`
+-- Table structure for table `Usuario`
 --
 
 DROP TABLE IF EXISTS `Usuario`;
@@ -484,185 +495,186 @@ CREATE TABLE IF NOT EXISTS `Usuario` (
   `user_pass` varchar(64) COLLATE latin1_spanish_ci NOT NULL,
   `user_desc` varchar(64) COLLATE latin1_spanish_ci NOT NULL,
   `user_email` varchar(64) COLLATE latin1_spanish_ci NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci COMMENT='tabla de usuarios';
+) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci COMMENT='tabla de usuarios';
 
 --
--- Volcado de datos para la tabla `Usuario`
+-- Dumping data for table `Usuario`
 --
 
 INSERT INTO `Usuario` (`user_id`, `user_name`, `user_pass`, `user_desc`, `user_email`) VALUES
 (21, 'Admin', 'admin', 'administrador general', 'admin@admin.com'),
 (10, 'pepe', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'usuario sin permisos administrativos', 'pepe@wpawpa.com'),
 (22, 'UsuarioTest', 'test', '', 'test@test.test'),
-(23, 'user2', 'user', '', 'user@user.es');
+(23, 'user2', 'user', '', 'user@user.es'),
+(24, 'AdminCancerbero', 'd033e22ae348aeb5660fc2140aec35850c4da997', 'Admin de cancerbero', 'cancerbero@cancerbero.com');
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `Administra`
+-- Indexes for table `Administra`
 --
 ALTER TABLE `Administra`
  ADD PRIMARY KEY (`user_id`,`mat_id`);
 
 --
--- Indices de la tabla `Apunte`
+-- Indexes for table `Apunte`
 --
 ALTER TABLE `Apunte`
  ADD PRIMARY KEY (`apunte_id`);
 
 --
--- Indices de la tabla `Comparte_Nota`
+-- Indexes for table `Comparte_Nota`
 --
 ALTER TABLE `Comparte_Nota`
  ADD PRIMARY KEY (`nota_id`,`user_id`);
 
 --
--- Indices de la tabla `Funcionalidad`
+-- Indexes for table `Funcionalidad`
 --
 ALTER TABLE `Funcionalidad`
  ADD PRIMARY KEY (`fun_id`);
 
 --
--- Indices de la tabla `Materia`
+-- Indexes for table `Materia`
 --
 ALTER TABLE `Materia`
  ADD PRIMARY KEY (`mat_id`);
 
 --
--- Indices de la tabla `Materia_Usuario`
+-- Indexes for table `Materia_Usuario`
 --
 ALTER TABLE `Materia_Usuario`
  ADD PRIMARY KEY (`mat_id`,`user_id`);
 
 --
--- Indices de la tabla `Nota`
+-- Indexes for table `Nota`
 --
 ALTER TABLE `Nota`
  ADD PRIMARY KEY (`nota_id`), ADD KEY `nota_id` (`nota_id`);
 
 --
--- Indices de la tabla `Notificacion`
+-- Indexes for table `Notificacion`
 --
 ALTER TABLE `Notificacion`
  ADD PRIMARY KEY (`notificacion_id`);
 
 --
--- Indices de la tabla `Pag_Fun`
+-- Indexes for table `Pag_Fun`
 --
 ALTER TABLE `Pag_Fun`
  ADD PRIMARY KEY (`pag_id`,`fun_id`), ADD KEY `fun_id` (`fun_id`);
 
 --
--- Indices de la tabla `Pagina`
+-- Indexes for table `Pagina`
 --
 ALTER TABLE `Pagina`
  ADD PRIMARY KEY (`pag_id`);
 
 --
--- Indices de la tabla `Rol`
+-- Indexes for table `Rol`
 --
 ALTER TABLE `Rol`
  ADD PRIMARY KEY (`rol_id`);
 
 --
--- Indices de la tabla `Rol_Fun`
+-- Indexes for table `Rol_Fun`
 --
 ALTER TABLE `Rol_Fun`
  ADD PRIMARY KEY (`rol_id`,`fun_id`), ADD KEY `fun_id` (`fun_id`);
 
 --
--- Indices de la tabla `Titulacion`
+-- Indexes for table `Titulacion`
 --
 ALTER TABLE `Titulacion`
  ADD PRIMARY KEY (`tit_id`);
 
 --
--- Indices de la tabla `Titulacion_Usuario`
+-- Indexes for table `Titulacion_Usuario`
 --
 ALTER TABLE `Titulacion_Usuario`
  ADD PRIMARY KEY (`tit_id`,`user_id`);
 
 --
--- Indices de la tabla `U_Tiene_A`
+-- Indexes for table `U_Tiene_A`
 --
 ALTER TABLE `U_Tiene_A`
  ADD PRIMARY KEY (`apunte_id`,`user_id`);
 
 --
--- Indices de la tabla `User_Fun`
+-- Indexes for table `User_Fun`
 --
 ALTER TABLE `User_Fun`
  ADD PRIMARY KEY (`user_id`,`fun_id`), ADD KEY `fun_id` (`fun_id`);
 
 --
--- Indices de la tabla `User_Pag`
+-- Indexes for table `User_Pag`
 --
 ALTER TABLE `User_Pag`
  ADD PRIMARY KEY (`user_id`,`pag_id`), ADD KEY `pag_id` (`pag_id`);
 
 --
--- Indices de la tabla `User_Rol`
+-- Indexes for table `User_Rol`
 --
 ALTER TABLE `User_Rol`
  ADD PRIMARY KEY (`user_id`,`rol_id`), ADD KEY `rol_id` (`rol_id`);
 
 --
--- Indices de la tabla `Usuario`
+-- Indexes for table `Usuario`
 --
 ALTER TABLE `Usuario`
  ADD PRIMARY KEY (`user_id`), ADD UNIQUE KEY `user_name` (`user_name`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `Apunte`
+-- AUTO_INCREMENT for table `Apunte`
 --
 ALTER TABLE `Apunte`
 MODIFY `apunte_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
--- AUTO_INCREMENT de la tabla `Funcionalidad`
+-- AUTO_INCREMENT for table `Funcionalidad`
 --
 ALTER TABLE `Funcionalidad`
 MODIFY `fun_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=29;
 --
--- AUTO_INCREMENT de la tabla `Materia`
+-- AUTO_INCREMENT for table `Materia`
 --
 ALTER TABLE `Materia`
-MODIFY `mat_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+MODIFY `mat_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
 --
--- AUTO_INCREMENT de la tabla `Nota`
+-- AUTO_INCREMENT for table `Nota`
 --
 ALTER TABLE `Nota`
 MODIFY `nota_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT de la tabla `Notificacion`
+-- AUTO_INCREMENT for table `Notificacion`
 --
 ALTER TABLE `Notificacion`
 MODIFY `notificacion_id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT de la tabla `Pagina`
+-- AUTO_INCREMENT for table `Pagina`
 --
 ALTER TABLE `Pagina`
-MODIFY `pag_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=52;
+MODIFY `pag_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=53;
 --
--- AUTO_INCREMENT de la tabla `Rol`
+-- AUTO_INCREMENT for table `Rol`
 --
 ALTER TABLE `Rol`
 MODIFY `rol_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
 --
--- AUTO_INCREMENT de la tabla `Titulacion`
+-- AUTO_INCREMENT for table `Titulacion`
 --
 ALTER TABLE `Titulacion`
-MODIFY `tit_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `tit_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
 --
--- AUTO_INCREMENT de la tabla `Usuario`
+-- AUTO_INCREMENT for table `Usuario`
 --
 ALTER TABLE `Usuario`
-MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=24;
+MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=25;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
