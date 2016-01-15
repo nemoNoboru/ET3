@@ -5,12 +5,6 @@
   <div class="panel-heading">Filtrar</div>
   <div class="panel-body">
     <form action="apuntesComunidad.php" method="post">
-	<!--<select class="form-control" name="titulacion">
-    <option value="nil" selected> Seleccione una titulacion </option>
-	  <?php foreach($titulos as $titulo): ?>
-	    <option value="<?php echo $titulo->getTit_id(); ?>"><?php echo $titulo->getTit_name(); ?></option>
-	  <?php endforeach; ?>
-	</select><br/>-->
 	<select class="form-control" name="materia">
     <option value="nil" selected> Seleccione una materia </option>
 	  <?php foreach($materias as $materia): ?>
