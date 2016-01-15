@@ -33,11 +33,11 @@
      global $root;
      if($usuario == $root){ return true; }
      if($id != $this->man->getIdUser($usuario)){
-       header('location:../views/error.php?ID=3');
+       header('location:../controllers/home.php');
        exit();
       }
      if(!$this->canAccess($usuario)){
-       header('location:../views/error.php?ID=3');
+       header('location:../controllers/home.php');
        exit();
      }
    }
@@ -48,7 +48,7 @@
 
    public function handleAuto(){
      if(!$this->canAccess($_SESSION['name'])){
-       header('location:../views/noPermisos.php');
+       header('location:../controllers/home.php');
        exit();
      }
    }
