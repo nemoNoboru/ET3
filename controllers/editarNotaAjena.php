@@ -1,5 +1,5 @@
 <?php
-  //
+  //Creado por FVieira
 
   session_start(); // se inicia el manejo de sesiones
 
@@ -9,26 +9,24 @@
   $cerb->handleAuto();
 
   //Includes iniciales
-  require_once '../views/templateEngine.php'; // se carga la clase TemplateEngine
+  require_once '../views/templateEngine.php';
   require_once '../model/Nota.php';
   require_once '../model/Usuario.php';
-  require_once 'navbar.php'; //Inclusión de navbar. Omitible si no la necesita
-  require_once '../model/driver.php'; //Inclusión de Driver de las clases de "model". Omitible si no las usamos
+  require_once 'navbar.php';
+  require_once '../model/driver.php';
 
-  //Conexion a la BD (Permite usar las funciones de DBManager de Cancerbero)
   $db = Driver::getInstance();
 
   //Instancias TemplateEngine, renderizan elementos
   $renderMain = new TemplateEngine();
   $renderPlantilla = new TemplateEngine();
 
-  //FUNCIONES DEL CONTROLADOR
-  //Escribimos aquí lo que hace este controlador en concreto (Comprueba el login, redirecciona...)
+  //cargar el usuario
   $renderMain->title = "Editar nota ajena"; //Titulo y cabecera de la pagina
   $nota = null;
   $user = new Usuario($db);
   $user = $user->findBy('user_name',$_SESSION['name'])[0];
-
+  //comprobar la peticion de una nota y que esta exista
   if(!isset($_GET['nota'])){
     header("location: nuevaNota.php");
   }else{
@@ -41,11 +39,12 @@
     if( ! $user->canEditNota($nota) ){
       header("location: misNotas.php");
     }
+    //cargar en la plantilla el contenido de la nota
     $renderPlantilla->nota = $nota->getNota_id();
     $renderPlantilla->titulo = $nota->getNota_name();
     $renderPlantilla->contenido = $nota->getContenido();
   }
-
+  //control de POST, guardar la nota
   if(isset($_POST['editor']) && isset($_GET['nota'])){
     $nota->setNota_name($_POST['title']);
     $nota->setContenido(htmlspecialchars($_POST['editor']));
@@ -53,7 +52,7 @@
     $buffer = $date['year']."-".$date['mon']."-".$date['mday'];
     $nota->setFecha($buffer);
     $nota->save();
-    header('Location:'.$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']);
+    header('Location:'.$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']); //refrescar la pagina
   }
   //RENDERIZADO FINAL
   $renderMain->navbar = renderNavBar(); //Inserción de navBar en la pagina. Omitible si no la necesita

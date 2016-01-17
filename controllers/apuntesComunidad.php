@@ -33,23 +33,11 @@
   //fin Instancias
   //FUNCIONES DEL CONTROLADOR
 
+    //buscar apuntes de una materia en concreto
     if(isset($_POST['materia']) && $_POST['materia']!='nil'){
       $apuntes = $apunte->findBy('mat_id',$_POST['materia']);
 
-      /*
-     if($_POST['materia'] != "nil"){
-       $materiafiltro = new Materia($db);
-       $materiafiltro = $materiafiltro->findBy('mat_name',$_POST['materia']);
-
-       if($materiafiltro){
-         $materiafiltro = $materiafiltro[0];
-
-       foreach ($apuntes as $key => $apunte) {
-         if($apunte->getMat_id() != $materiafiltro->getMat_id()){
-           unset($apuntes[$key]);
-         }
-      }
-    }}*/
+    //filtrar por año
     if($_POST['anho'] != "nil"){
       foreach ($apuntes as $key => $apunte) {
         if($apunte->getAnho_academico() != $_POST['anho']){
@@ -59,7 +47,7 @@
     }
     $renderPlantilla->apuntes = $apuntes;
   }else{
-    $renderPlantilla->apuntes = 'nil';
+    $renderPlantilla->apuntes = 'nil'; //si no se ha filtrado por materia no se cargan apuntes
   }
   if(isset($_SESSION['name'])){
     $renderPlantilla->logged = true;

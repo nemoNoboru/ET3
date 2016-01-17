@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 15, 2016 at 07:37 PM
+-- Generation Time: Jan 17, 2016 at 01:24 PM
 -- Server version: 5.5.46-0+deb8u1
 -- PHP Version: 5.6.14-0+deb8u1
 
@@ -22,6 +22,13 @@ SET time_zone = "+00:00";
 CREATE DATABASE IF NOT EXISTS `GSTRDB` DEFAULT CHARACTER SET utf16 COLLATE utf16_spanish2_ci;
 USE `GSTRDB`;
 
+# Privileges for `AdminGSTR`@`localhost`
+
+GRANT USAGE ON *.* TO 'AdminGSTR'@'localhost' IDENTIFIED BY PASSWORD '*E7AF0B3ED69A0E3C7E24AF8AF559A9DF40A7FFA9';
+
+GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER, CREATE TEMPORARY TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, EVENT, TRIGGER ON `GSTRDB`.* TO 'AdminGSTR'@'localhost';
+
+GRANT ALL PRIVILEGES ON `gstrdb`.* TO 'AdminGSTR'@'localhost' WITH GRANT OPTION;
 -- --------------------------------------------------------
 
 --
@@ -33,6 +40,15 @@ CREATE TABLE IF NOT EXISTS `Administra` (
   `user_id` int(11) NOT NULL,
   `mat_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci;
+
+--
+-- Dumping data for table `Administra`
+--
+
+INSERT INTO `Administra` (`user_id`, `mat_id`) VALUES
+(21, 4),
+(21, 6),
+(21, 7);
 
 -- --------------------------------------------------------
 
@@ -48,15 +64,15 @@ CREATE TABLE IF NOT EXISTS `Apunte` (
   `apunte_name` varchar(24) COLLATE utf16_spanish2_ci NOT NULL,
   `ruta` varchar(32) COLLATE utf16_spanish2_ci NOT NULL,
   `user_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci;
 
 --
 -- Dumping data for table `Apunte`
 --
 
 INSERT INTO `Apunte` (`apunte_id`, `mat_id`, `anho_academico`, `apunte_name`, `ruta`, `user_id`) VALUES
-(2, 4, 2015, 'eeeee', 'c319b5f8ffd17ac62abea906ab2a264c', 21),
-(3, 6, 2011, 'ueehhuehue', 'c319b5f8ffd17ac62abea906ab2a264c', 23);
+(4, 6, 2010, 'Rust (apunte de prueba)', '187bcb072603d81a1010acde76e6a388', 21),
+(7, 5, 2010, 'Rust 4 rubists prueba', '2cc4e2ddcbdf7d3567e13a7cfca1a570', 21);
 
 -- --------------------------------------------------------
 
@@ -75,7 +91,8 @@ CREATE TABLE IF NOT EXISTS `Comparte_Nota` (
 --
 
 INSERT INTO `Comparte_Nota` (`nota_id`, `user_id`) VALUES
-(1, 23);
+(1, 23),
+(3, 21);
 
 -- --------------------------------------------------------
 
@@ -152,11 +169,11 @@ CREATE TABLE IF NOT EXISTS `Materia_Usuario` (
 --
 
 INSERT INTO `Materia_Usuario` (`mat_id`, `user_id`) VALUES
-(1, 21),
-(1, 23),
-(2, 21),
-(3, 21),
-(7, 21);
+(4, 21),
+(5, 21),
+(6, 21),
+(7, 21),
+(17, 21);
 
 -- --------------------------------------------------------
 
@@ -171,15 +188,15 @@ CREATE TABLE IF NOT EXISTS `Nota` (
   `fecha` date NOT NULL,
   `contenido` varchar(1500) COLLATE utf16_spanish2_ci NOT NULL,
   `user_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci;
 
 --
 -- Dumping data for table `Nota`
 --
 
 INSERT INTO `Nota` (`nota_id`, `nota_name`, `fecha`, `contenido`, `user_id`) VALUES
-(1, 'Titulito', '2016-01-06', '&lt;ul&gt;&lt;li&gt;ueeueueueu&lt;/li&gt;&lt;li&gt;aasdasd&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;strong&gt;DIOS&lt;/strong&gt;&lt;/p&gt;', 23),
-(2, 'Huehuehueheu', '2016-01-14', '&lt;p&gt;Hola esto es una nota&lt;/p&gt;', 21);
+(2, 'Nota de prueba', '2016-01-17', '&lt;p&gt;Hola esto es una nota&lt;/p&gt;', 21),
+(3, 'hola', '2016-01-17', '&lt;p&gt;hola admin, te comparto una nota&lt;/p&gt;', 23);
 
 -- --------------------------------------------------------
 
@@ -193,7 +210,7 @@ CREATE TABLE IF NOT EXISTS `Notificacion` (
   `fecha` date NOT NULL,
   `contenido` varchar(40) COLLATE utf16_spanish2_ci NOT NULL,
   `user_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci;
 
 -- --------------------------------------------------------
 
@@ -360,7 +377,7 @@ DROP TABLE IF EXISTS `Titulacion`;
 CREATE TABLE IF NOT EXISTS `Titulacion` (
 `tit_id` int(11) NOT NULL,
   `tit_name` varchar(18) COLLATE utf16_spanish2_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci;
 
 --
 -- Dumping data for table `Titulacion`
@@ -389,8 +406,8 @@ CREATE TABLE IF NOT EXISTS `Titulacion_Usuario` (
 --
 
 INSERT INTO `Titulacion_Usuario` (`tit_id`, `user_id`) VALUES
-(1, 23),
-(2, 21);
+(2, 21),
+(4, 21);
 
 -- --------------------------------------------------------
 
@@ -421,7 +438,8 @@ CREATE TABLE IF NOT EXISTS `User_Fun` (
 --
 
 INSERT INTO `User_Fun` (`user_id`, `fun_id`) VALUES
-(21, 26);
+(21, 26),
+(21, 28);
 
 -- --------------------------------------------------------
 
@@ -440,20 +458,6 @@ CREATE TABLE IF NOT EXISTS `User_Pag` (
 --
 
 INSERT INTO `User_Pag` (`user_id`, `pag_id`) VALUES
-(10, 2),
-(10, 3),
-(10, 4),
-(10, 5),
-(10, 6),
-(10, 7),
-(10, 8),
-(10, 9),
-(10, 10),
-(10, 11),
-(10, 12),
-(10, 13),
-(10, 14),
-(10, 16),
 (23, 52);
 
 -- --------------------------------------------------------
@@ -473,7 +477,6 @@ CREATE TABLE IF NOT EXISTS `User_Rol` (
 --
 
 INSERT INTO `User_Rol` (`user_id`, `rol_id`) VALUES
-(10, 12),
 (21, 12),
 (21, 14),
 (21, 15),
@@ -503,7 +506,6 @@ CREATE TABLE IF NOT EXISTS `Usuario` (
 
 INSERT INTO `Usuario` (`user_id`, `user_name`, `user_pass`, `user_desc`, `user_email`) VALUES
 (21, 'Admin', 'admin', 'administrador general', 'admin@admin.com'),
-(10, 'pepe', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'usuario sin permisos administrativos', 'pepe@wpawpa.com'),
 (22, 'UsuarioTest', 'test', '', 'test@test.test'),
 (23, 'user2', 'user', '', 'user@user.es'),
 (24, 'AdminCancerbero', 'd033e22ae348aeb5660fc2140aec35850c4da997', 'Admin de cancerbero', 'cancerbero@cancerbero.com');
@@ -516,13 +518,13 @@ INSERT INTO `Usuario` (`user_id`, `user_name`, `user_pass`, `user_desc`, `user_e
 -- Indexes for table `Administra`
 --
 ALTER TABLE `Administra`
- ADD PRIMARY KEY (`user_id`,`mat_id`);
+ ADD PRIMARY KEY (`user_id`,`mat_id`), ADD KEY `mat_id` (`mat_id`);
 
 --
 -- Indexes for table `Apunte`
 --
 ALTER TABLE `Apunte`
- ADD PRIMARY KEY (`apunte_id`);
+ ADD PRIMARY KEY (`apunte_id`), ADD KEY `mat_id` (`mat_id`), ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `Comparte_Nota`
@@ -540,7 +542,7 @@ ALTER TABLE `Funcionalidad`
 -- Indexes for table `Materia`
 --
 ALTER TABLE `Materia`
- ADD PRIMARY KEY (`mat_id`);
+ ADD PRIMARY KEY (`mat_id`), ADD KEY `tit_id` (`tit_id`);
 
 --
 -- Indexes for table `Materia_Usuario`
@@ -634,7 +636,7 @@ ALTER TABLE `Usuario`
 -- AUTO_INCREMENT for table `Apunte`
 --
 ALTER TABLE `Apunte`
-MODIFY `apunte_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+MODIFY `apunte_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `Funcionalidad`
 --
@@ -649,12 +651,12 @@ MODIFY `mat_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
 -- AUTO_INCREMENT for table `Nota`
 --
 ALTER TABLE `Nota`
-MODIFY `nota_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+MODIFY `nota_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `Notificacion`
 --
 ALTER TABLE `Notificacion`
-MODIFY `notificacion_id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `notificacion_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `Pagina`
 --
@@ -669,12 +671,52 @@ MODIFY `rol_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
 -- AUTO_INCREMENT for table `Titulacion`
 --
 ALTER TABLE `Titulacion`
-MODIFY `tit_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
+MODIFY `tit_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `Usuario`
 --
 ALTER TABLE `Usuario`
 MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=25;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `Administra`
+--
+ALTER TABLE `Administra`
+ADD CONSTRAINT `Administra_ibfk_1` FOREIGN KEY (`mat_id`) REFERENCES `Materia` (`mat_id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `Apunte`
+--
+ALTER TABLE `Apunte`
+ADD CONSTRAINT `Apunte_ibfk_1` FOREIGN KEY (`mat_id`) REFERENCES `Materia` (`mat_id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `Materia`
+--
+ALTER TABLE `Materia`
+ADD CONSTRAINT `Materia_ibfk_1` FOREIGN KEY (`tit_id`) REFERENCES `Titulacion` (`tit_id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `Materia_Usuario`
+--
+ALTER TABLE `Materia_Usuario`
+ADD CONSTRAINT `Materia_Usuario_ibfk_1` FOREIGN KEY (`mat_id`) REFERENCES `Materia` (`mat_id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `Titulacion_Usuario`
+--
+ALTER TABLE `Titulacion_Usuario`
+ADD CONSTRAINT `Titulacion_Usuario_ibfk_1` FOREIGN KEY (`tit_id`) REFERENCES `Titulacion` (`tit_id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `U_Tiene_A`
+--
+ALTER TABLE `U_Tiene_A`
+ADD CONSTRAINT `U_Tiene_A_ibfk_1` FOREIGN KEY (`apunte_id`) REFERENCES `Apunte` (`apunte_id`) ON DELETE CASCADE;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

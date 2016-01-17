@@ -24,6 +24,7 @@
  </div>
 <?php endforeach; ?>
 </form>
+<a href="administrarMaterias.php">Volver</a>
 </div>
 </div>
 </div>

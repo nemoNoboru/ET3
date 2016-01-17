@@ -20,7 +20,7 @@
     $usuario->setUser_name($_POST['name']);
     $usuario->setUser_pass($_POST['pass']);
     $usuario->setUser_email($_POST['email']);
-    if(!$usuario->existeUsuario()){
+    if(!$usuario->existeUsuario()){ //si no existe el usuario se crea, se da el rol de UsuarioApuntorium, y se logea
       $usuario->create();
       $db->insertRelationUserRol($_POST['name'],'UsuarioApuntorium');
       $_SESSION['name'] = $_POST['name'];

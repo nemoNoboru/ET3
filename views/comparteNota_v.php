@@ -7,10 +7,10 @@
     <div class="form-group">
       <input class="form-control" type="text" name="usuario" required placeholder="nombre del usuario "/><br/>
       <input class="form-control btn btn-success" type="submit" value="Compartir">
-      <br/>
     </div>
+      <a href="misNotas.php">Volver</a>
   </form>
 </div>
+</div>
+</div>
 <?php echo $modal; ?>
-</div>
-</div>

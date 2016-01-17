@@ -12,6 +12,7 @@ if(isset(array_keys($_POST)[1])){
 
   $titulacion = new Titulacion($db);
   //FUNCIONES DEL CONTROLADOR
+  //destruye la titulacion
   $titulacion = $titulacion->findBy('tit_id',$id);
   $titulacion[0]->destroy();
   header("location: consultaTitulaciones.php"); //return

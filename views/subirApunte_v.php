@@ -11,7 +11,7 @@
   <form action="../controllers/subirApunte.php" enctype="multipart/form-data" method="post">
     <div class="form-group">
       <input required name="apunteUploaded" type="file" /><br/>
-      <input required class="form-control" type="text" name="name" placeholder="Nombre"/><br/>
+      <input required pattern="[A-z 0-9]{1,24}" class="form-control" type="text" name="name" placeholder="Nombre"/><br/>
       <select required class="form-control" name="materia">
         <option value="" selected> Seleccione una materia </option>
         <?php foreach($materias as $materia): ?>

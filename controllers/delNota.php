@@ -11,6 +11,7 @@ if(isset(array_keys($_POST)[1])){
   $db = Driver::getInstance();
   $nota = new Nota($db);
   //FUNCIONES DEL CONTROLADOR
+  //borra la nota
   $nota = $nota->findBy('nota_id',$id);
   $nota[0]->destroy();
   header("location: misNotas.php"); //return

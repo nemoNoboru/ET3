@@ -1,4 +1,5 @@
 <?php
+  //controlador hecho por FVieira
   require_once '../model/Titulacion_Usuario.php';
   require_once '../model/Usuario.php';
   require_once '../model/driver.php';
@@ -9,6 +10,8 @@
 
   $db = Driver::getInstance();
   $usuario = new Usuario($db);
+
+  //borra la relacion entre una titulacion y un usuario
   $usuario = $usuario->findBy('user_name',$_SESSION['name']);
   $usuario = $usuario[0];
   $tit_us = new Titulacion_Usuario($db);

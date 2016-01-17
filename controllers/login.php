@@ -7,6 +7,11 @@
   require_once '../cancerbero/php/DBManager.php'; // se carga el driver de cancerbero
   require_once 'navbar.php';
   require_once 'modal.php';
+
+  if(isset($_SESSION['name'])){ // si ya esta logeado que no se vuelva a logear
+    header("location: home.php");
+  }
+
   $db = DBManager::getInstance();
   $db->connect();
   $renderMain = new TemplateEngine();
@@ -23,7 +28,7 @@
     $renderlogin->status = renderModalError($status,$contenido);
   }
   $renderMain->title = "Login";
-  $renderMain->navbar = renderNavBar(); 
+  $renderMain->navbar = renderNavBar();
 
   $renderMain->content = $renderlogin->render('login_v.php'); //que inserte en la variable $content de la plantilla main.php el resultado de renderizar login_v.php
   echo $renderMain->renderMain(); //renderiza main y escribe la pagina
